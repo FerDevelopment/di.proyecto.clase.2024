@@ -1,0 +1,250 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>di.proyecto.clase._2024</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Source\Iconos\addarticulo.png" />
+    <None Remove="Source\Iconos\addarticulomvvm.png" />
+    <None Remove="Source\Iconos\addinventario.png" />
+    <None Remove="Source\Iconos\addmodelomvvm.png" />
+    <None Remove="Source\Iconos\adduser.png" />
+    <None Remove="Source\Iconos\addusermvvm.png" />
+    <None Remove="Source\Iconos\administracion.png" />
+    <None Remove="Source\Iconos\arbolarticulos.png" />
+    <None Remove="Source\Iconos\arbolmodelo.png" />
+    <None Remove="Source\Iconos\arbolmodelos.png" />
+    <None Remove="Source\Iconos\arboltipo.png" />
+    <None Remove="Source\Iconos\arbolusuarios.png" />
+    <None Remove="Source\Iconos\articulo.png" />
+    <None Remove="Source\Iconos\borrar.png" />
+    <None Remove="Source\Iconos\buscar.png" />
+    <None Remove="Source\Iconos\busqueda.png" />
+    <None Remove="Source\Iconos\cerrar.png" />
+    <None Remove="Source\Iconos\charts.png" />
+    <None Remove="Source\Iconos\devolucion.png" />
+    <None Remove="Source\Iconos\editar.png" />
+    <None Remove="Source\Iconos\espacios.png" />
+    <None Remove="Source\Iconos\exit.png" />
+    <None Remove="Source\Iconos\facebook.png" />
+    <None Remove="Source\Iconos\gesarticulo.png" />
+    <None Remove="Source\Iconos\gesarticulomvvm.png" />
+    <None Remove="Source\Iconos\gesusuario.png" />
+    <None Remove="Source\Iconos\gesusuariomvvm.png" />
+    <None Remove="Source\Iconos\google.png" />
+    <None Remove="Source\Iconos\googleplus.png" />
+    <None Remove="Source\Iconos\iconmodelo.png" />
+    <None Remove="Source\Iconos\icon_down.png" />
+    <None Remove="Source\Iconos\icon_right.png" />
+    <None Remove="Source\Iconos\informacion.png" />
+    <None Remove="Source\Iconos\informe.png" />
+    <None Remove="Source\Iconos\inventario.png" />
+    <None Remove="Source\Iconos\listaarticulos.png" />
+    <None Remove="Source\Iconos\listamodelos.png" />
+    <None Remove="Source\Iconos\listausuarios.png" />
+    <None Remove="Source\Iconos\Logo.png" />
+    <None Remove="Source\Iconos\matisse.png" />
+    <None Remove="Source\Iconos\modelo.png" />
+    <None Remove="Source\Iconos\pass.png" />
+    <None Remove="Source\Iconos\perfil.png" />
+    <None Remove="Source\Iconos\prestamos.png" />
+    <None Remove="Source\Iconos\principal.png" />
+    <None Remove="Source\Iconos\quitafiltro.png" />
+    <None Remove="Source\Iconos\resetclave.png" />
+    <None Remove="Source\Iconos\salida.png" />
+    <None Remove="Source\Iconos\stock.png" />
+    <None Remove="Source\Iconos\twitter.png" />
+    <None Remove="Source\Iconos\useradd.png" />
+    <None Remove="Source\Iconos\usuario.png" />
+    <None Remove="Source\Iconos\windows.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Backend\Modelo-Pojos\" />
+    <Folder Include="Frontend\ControlUsuario\" />
+    <Folder Include="MVVM\Base\" />
+    <Folder Include="Source\Estilos\" />
+    <Folder Include="Source\Imagenes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.10" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.3.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Source\Iconos\addarticulo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\addarticulomvvm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\addinventario.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\addmodelomvvm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\adduser.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\addusermvvm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\administracion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\arbolarticulos.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\arbolmodelo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\arbolmodelos.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\arboltipo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\arbolusuarios.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\articulo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\borrar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\buscar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\busqueda.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\cerrar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\charts.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\devolucion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\editar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\espacios.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\exit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\facebook.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\gesarticulo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\gesarticulomvvm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\gesusuario.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\gesusuariomvvm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\google.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\googleplus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\iconmodelo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\icon_down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\icon_right.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\informacion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\informe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\inventario.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\listaarticulos.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\listamodelos.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\listausuarios.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\matisse.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\modelo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\pass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\perfil.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\prestamos.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\principal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\quitafiltro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\resetclave.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\salida.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\stock.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\twitter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\useradd.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\usuario.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Source\Iconos\windows.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
