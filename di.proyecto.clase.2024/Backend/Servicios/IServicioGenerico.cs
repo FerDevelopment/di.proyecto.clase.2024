@@ -16,7 +16,7 @@ namespace di.proyecto.clase._2024.Backend.Servicios
         Task<IEnumerable<T>> GetAllAsync();
          
         //Agrega un objeto a la tabla
-        Task AddAsync(T entity);
+        Task<bool> AddAsync(T entity);
 
         //Actualiza un objeto en la tabla
         Task UpdateAsync(T entity);

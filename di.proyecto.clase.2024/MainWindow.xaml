@@ -8,7 +8,8 @@
  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
 xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Pantalla principal" Height="450" Width="800">
-    <DockPanel>
+    <DockPanel >
+        
         <Grid DockPanel.Dock="Top">
 
             <Grid.RowDefinitions>
@@ -41,7 +42,7 @@ VerticalAlignment="Top" Width="auto" IsMainMenu="True" Style="{StaticResource Ma
 
                 <!--Articulos-->
                 <MenuItem Header="Articulos" Style="{StaticResource MahApps.Styles.MenuItem}">
-                    <MenuItem Header="Articulo nuevo">
+                    <MenuItem Header="Articulo nuevo" x:Name="btnArticuloNuevo" Click="btnArticuloNuevo_Click" >
                         <MenuItem.Icon>
                             <mat:PackIcon Kind="PlusBox"/>
                         </MenuItem.Icon>
@@ -57,7 +58,7 @@ VerticalAlignment="Top" Width="auto" IsMainMenu="True" Style="{StaticResource Ma
                         </MenuItem.Icon>
                     </MenuItem>
                     <Separator/>
-                    <MenuItem Header="Modelo Articulo _Nuevo ">
+                    <MenuItem Header="Modelo Articulo _Nuevo " Click="MenuItem_Click">
                         <MenuItem.Icon>
                             <mat:PackIcon Kind="ArchiveArrowDown"/>
                         </MenuItem.Icon>
@@ -88,6 +89,18 @@ VerticalAlignment="Top" Width="auto" IsMainMenu="True" Style="{StaticResource Ma
                 </MenuItem>
             </Menu>
         </Grid>
+   
+        <!--Cerrar Sesion-->
+
+        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 -30 0 0">
+            <mat:PackIcon Kind="UserOutline" Foreground="White" Background="MediumAquamarine" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5 0 5 0"/>
+            <TextBlock x:Name="nombreUsu" Text="" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30 0 30 0"/>
+            <Button x:Name="cerrarSesion" Click="cerrarSesion_Click" Style="{StaticResource MaterialDesignOutlinedButton}" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button.Content >
+                    <TextBlock Text="Cerrar Sesion"/>
+                </Button.Content>
+            </Button>
+        </WrapPanel>
     </DockPanel>
 
 </mah:MetroWindow>

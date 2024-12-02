@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:di.proyecto.clase._2024.Frontend.Dialogos"
         mc:Ignorable="d"
+
         
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
    xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
                  ShowTitleBar="False"
                  ResizeMode="NoResize"
-                         
+              Icon="/Source/Iconos/Logo.png"           
         Title="Login" Height="450" Width="800">
 
     <Grid>
@@ -43,28 +44,32 @@
 
             <TextBlock Grid.Row="0" Text="L O G I N" Foreground="White" FontSize="35"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="1" Text="Por favor indtroduce tu usuario y clave"  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Light"/>
-            <TextBox Grid.Row="2" BorderBrush="#203d50" BorderThickness="2" Height="40" HorizontalAlignment="Center" Width="280" mat:TextFieldAssist.TextFieldCornerRadius="20" Padding="20 0 20 0" mat:HintAssist.HintHorizontalAlignment="Center" Style="{StaticResource MaterialDesignOutlinedTextBox}">
+            
+            <!--USUARIO-->
+            <TextBox x:Name="introName" Grid.Row="2" BorderBrush="#203d50" BorderThickness="2" Height="40" HorizontalAlignment="Center" Width="280" mat:TextFieldAssist.TextFieldCornerRadius="20" Padding="20 0 20 0" mat:HintAssist.HintHorizontalAlignment="Center" Style="{StaticResource MaterialDesignOutlinedTextBox}">
                 <mat:HintAssist.Hint >
                     <TextBlock Text="Usuario" Foreground="White" FontWeight="Light" HorizontalAlignment="Center"/>
                 </mat:HintAssist.Hint>
             </TextBox>
-            <PasswordBox Grid.Row="3" BorderBrush="#203d50" BorderThickness="2" Height="40" HorizontalAlignment="Center" Width="280" mat:TextFieldAssist.TextFieldCornerRadius="20" Padding="20 0 20 0" mat:HintAssist.HintHorizontalAlignment="Center" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" >
+            
+            <!--Contrasenya-->
+            <PasswordBox x:Name="introPWD" Grid.Row="3" BorderBrush="#203d50" BorderThickness="2" Height="40" HorizontalAlignment="Center" Width="280" mat:TextFieldAssist.TextFieldCornerRadius="20" Padding="20 0 20 0" mat:HintAssist.HintHorizontalAlignment="Center" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" >
                 <mat:HintAssist.Hint>
                     <TextBlock Text="Contraseña" Foreground="White" FontWeight="Light" HorizontalAlignment="Center"/>
                 </mat:HintAssist.Hint>
             </PasswordBox>
             <Button Grid.Row="4" Content="¿Has olvidado la contraseña?" Style="{StaticResource MaterialDesignOutlinedButton}" Foreground="white" BorderThickness="0" HorizontalAlignment="Center"  Padding="0"/>
-            <Button x:Name="btnLogin" Grid.Row="5" Content="Login" BorderBrush="#3e5c45" Background="Transparent" mat:ButtonAssist.CornerRadius="10" HorizontalAlignment="Center" Width="120" Height="40" Foreground="Gray" FontSize="10" Click="btnLogin_Click"/>
-            <Grid Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button x:Name="btnLogin" Grid.Row="5" Content="Login" BorderBrush="#3e5c45" Background="Transparent" mat:ButtonAssist.CornerRadius="10" HorizontalAlignment="Center" Width="120" Height="40" Foreground="Gray" FontSize="10" Click="btnLogin_Click" IsDefault="True"/>
+            <Grid Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <mat:PackIcon Grid.Column="0" Kind="Facebook" Foreground="White" Width="20" Height="20" Margin="10"/>
-                <mat:PackIcon Grid.Column="1" Kind="Twitter" Foreground="White" Width="20" Height="20" Margin="10"/>
-                <mat:PackIcon Grid.Column="2" Kind="GooglePlus" Foreground="White" Width="20" Height="20" Margin="10"/>
+                <mat:PackIcon x:Name="github" Grid.Column="0" Kind="Github" Foreground="White" Width="30" Height="30" Margin="10" MouseLeftButtonUp="github_MouseLeftButtonUp" Cursor="Hand"  Padding="20"  VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <mat:PackIcon x:Name="linkedin" Grid.Column="1" Kind="Linkedin" Foreground="White" Width="30" Height="30" Margin="10" MouseLeftButtonDown="linkedin_MouseLeftButtonDown" Cursor="Hand"  Padding="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <mat:PackIcon x:Name="Instagram" Grid.Column="2" Kind="Instagram" Foreground="White" Width="30" Height="30" Margin="10" MouseLeftButtonDown="Instagram_MouseLeftButtonDown" Cursor="Hand"  Padding="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Grid>
     </Grid>

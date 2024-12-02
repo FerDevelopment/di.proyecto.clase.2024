@@ -12,7 +12,7 @@ namespace di.proyecto.clase._2024.Backend.Servicios
     {
         private readonly DbContext _context; // Contexto de la base de datos
         private readonly DbSet<T> _dbSet;    // DbSet para la entidad genérica
-        private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         public ServicioGenerico(DbContext context)
         {
@@ -24,65 +24,64 @@ namespace di.proyecto.clase._2024.Backend.Servicios
         {
             try
             {
-                Logger.Info($"Obteniendo entidad de tipo {typeof(T).Name} con ID {id}");
-                var entity = await _dbSet.FindAsync(id);
-                if (entity == null)
-                {
-                    Logger.Warn($"No se encontró entidad de tipo {typeof(T).Name} con ID {id}");
-                }
-                return entity;
+
+                return await _dbSet.FindAsync(id);
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, $"Error al obtener entidad de tipo {typeof(T).Name} con ID {id}");
-                throw;
+                GuardarExcepcion(ex, $"Error al obtener entidad de tipo {typeof(T).Name}");
+                throw new Exception("Error BD Individual");
             }
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
+            /*"Select * from Table"*/
             try
             {
-                Logger.Info($"Obteniendo todas las entidades de tipo {typeof(T).Name}");
+               
                 return await _dbSet.ToListAsync();
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, $"Error al obtener todas las entidades de tipo {typeof(T).Name}");
-                throw;
+                GuardarExcepcion(ex, $"Error al obtener todas las entidades de tipo {typeof(T).Name}");
+                throw new Exception("Error BD Tablas");
             }
         }
 
-        public async Task AddAsync(T entity)
+        public async Task<bool> AddAsync(T entity)
         {
+            bool resultado = true;
             try
             {
-                Logger.Info($"Agregando nueva entidad de tipo {typeof(T).Name}");
+               
                 await _dbSet.AddAsync(entity);
                 await _context.SaveChangesAsync();
-                Logger.Info($"Entidad de tipo {typeof(T).Name} agregada con éxito");
+
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, $"Error al agregar entidad de tipo {typeof(T).Name}");
-                throw;
+                resultado = false;
+               GuardarExcepcion(ex, $"Error al agregar entidad de tipo {typeof(T).Name}");
+                throw new Exception("Error en el Insert");
             }
+            return resultado;
         }
 
         public async Task UpdateAsync(T entity)
         {
             try
             {
-                Logger.Info($"Actualizando entidad de tipo {typeof(T).Name}");
+               
                 _dbSet.Attach(entity);
                 _context.Entry(entity).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
-                Logger.Info($"Entidad de tipo {typeof(T).Name} actualizada con éxito");
+           
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, $"Error al actualizar entidad de tipo {typeof(T).Name}");
-                throw;
+                GuardarExcepcion(ex, $"Error al actualizar entidad de tipo {typeof(T).Name}");
+                throw new Exception("Error al Actualizar");
             }
         }
 
@@ -90,38 +89,45 @@ namespace di.proyecto.clase._2024.Backend.Servicios
         {
             try
             {
-                Logger.Info($"Eliminando entidad de tipo {typeof(T).Name} con ID {id}");
+               
                 var entity = await GetByIDAsync(id);
                 if (entity != null)
                 {
                     _dbSet.Remove(entity);
                     await _context.SaveChangesAsync();
-                    Logger.Info($"Entidad de tipo {typeof(T).Name} con ID {id} eliminada con éxito");
+
                 }
                 else
                 {
-                    Logger.Warn($"No se encontró entidad de tipo {typeof(T).Name} con ID {id} para eliminar");
+                   
                 }
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, $"Error al eliminar entidad de tipo {typeof(T).Name} con ID {id}");
-                throw;
+               GuardarExcepcion(ex, $"Error al eliminar entidad de tipo {typeof(T).Name} con ID {id}");
+                throw new Exception("Error al eliminar");
             }
         }
 
-        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func</*Lo que recibe*/T, /*Lo que devuelve*/bool>> predicate)
         {
             try
             {
-                Logger.Info($"Buscando entidades de tipo {typeof(T).Name} con una condición específica");
+              
                 return await _dbSet.Where(predicate).ToListAsync();
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, $"Error al buscar entidades de tipo {typeof(T).Name}");
-                throw;
+               GuardarExcepcion(ex, $"Error al buscar entidades de tipo {typeof(T).Name}");
+                throw new Exception("Error en la SQL");
             }
+        }
+
+        private void GuardarExcepcion(Exception ex, string mensaje)
+        {
+            logger.Error(mensaje + "\n" + ex.InnerException);
+            logger.Error(ex.Message);
+            logger.Error(ex.StackTrace);
         }
     }
 }
