@@ -1,0 +1,118 @@
+﻿<mah:MetroWindow x:Class="di.proyecto.clase._2024.Frontend.Dialogos.DialogoUsuarioMVC"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  
+  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+  xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+  mc:Ignorable="d"
+        xmlns:local="clr-namespace:di.proyecto.clase._2024.Frontend.Dialogos"
+        Title="DialogoUsuarioMVC" Height="540" Width="700">
+    <Grid MaxHeight="540" MaxWidth="700">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="INSERTAR USUARIO" Background="#444444" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="20" Padding="1"/>
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Margin="0,0,0,0">
+                <TextBlock Text="Datos Personales" FontStyle="Italic" Foreground="#e75a54" FontSize="18" Margin="10,0,0,0"/>
+                <Separator Height="1" Margin="5,0,5,0"/>
+            </StackPanel>
+            <Grid Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Grid.Column="0" mat:HintAssist.Hint="Nombre" MaxLength="45" HorizontalAlignment="Stretch" Margin="15,15,35,15" FontWeight="Bold"/>
+                <TextBox Grid.Row="0" Grid.Column="1" mat:HintAssist.Hint="Primer Apellido" MaxLength="45" HorizontalAlignment="Stretch" Margin="15,15,35,15" FontWeight="Bold"/>
+                <TextBox Grid.Row="1" Grid.Column="0" mat:HintAssist.Hint="Segundo Apellido" MaxLength="45" HorizontalAlignment="Stretch" Margin="15,15,35,15" FontWeight="Bold"/>
+                <TextBox Grid.Row="1" Grid.Column="1" mat:HintAssist.Hint="Email"  HorizontalAlignment="Stretch" Margin="15" FontWeight="Bold"/>
+            </Grid>
+            <TextBox Grid.Row="2"  mat:HintAssist.Hint="Domicilio" MaxLength="45" HorizontalAlignment="Stretch" Margin="15" FontWeight="Bold"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" mat:HintAssist.Hint="Poblacion" MaxLength="45" HorizontalAlignment="Stretch" Margin="15,15,35,15" FontWeight="Bold"/>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" mat:HintAssist.Hint="Telefono"  HorizontalAlignment="Stretch" VerticalAlignment="Center" FontWeight="Bold" Margin="15,0,0,0"/>
+                    <TextBox Grid.Column="1" mat:HintAssist.Hint="Codigo Postal"  HorizontalAlignment="Stretch" VerticalAlignment="Center" FontWeight="Bold" Margin="0,0,15,0"/>
+                </Grid>
+            </Grid>
+            <StackPanel Grid.Row="4" Margin="0,0,0,0">
+                <TextBlock Text="Datos de Usuario" FontStyle="Italic" Foreground="#e75a54" FontSize="18" Margin="10,0,0,0"/>
+                <Separator Height="1" Margin="5,0,5,0"/>
+            </StackPanel>
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" mat:HintAssist.Hint="Nombre de usuario*" Margin="0,0,20,0"  HorizontalAlignment="Stretch" VerticalAlignment="Center" FontWeight="Bold"/>
+                    <PasswordBox Grid.Column="1" mat:HintAssist.Hint="Contraseña*" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontWeight="Bold"/>
+                </Grid>
+                <ComboBox Grid.Column="1" mat:HintAssist.Hint="Selecciona un tipo de usuario*" FontWeight="Bold" Margin="0,0,0,5" HorizontalAlignment="Left" />
+            </Grid>
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1.2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Column="0" mat:HintAssist.Hint="Selecciona un departamento" HorizontalAlignment="Stretch" Padding="0,0,0,15" VerticalAlignment="Center" FontWeight="Bold"/>
+                    <ComboBox Grid.Column="0" Grid.Row="1" mat:HintAssist.Hint="Selecciona un grupo"  HorizontalAlignment="Stretch" VerticalAlignment="Center" FontWeight="Bold"/>
+                </Grid>
+                <ComboBox Grid.Column="0" mat:HintAssist.Hint="Selecciona un rol de usuario*" FontWeight="Bold" Padding="0,0,0,15" Margin="15,0,35,5"/>
+            </Grid>
+            <Grid Grid.Row="7" VerticalAlignment="Bottom" Margin="0 0 0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" Margin="15,0,15,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Guardar" Grid.Column="0" HorizontalAlignment="Left" />
+                    <Button Content="Cancelar" Grid.Column="1" HorizontalAlignment="Right" Foreground="#f55e55" Background="Transparent" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</mah:MetroWindow>

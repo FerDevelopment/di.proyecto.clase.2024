@@ -9,9 +9,9 @@
         mc:Ignorable="d"
          Title="GESTIÓN ARTÍCULOS" Height="650" Width="800">
 
-    <Grid MaxHeight="650" MaxWidth="800">
+    <Grid MaxHeight="650" MaxWidth="800" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
