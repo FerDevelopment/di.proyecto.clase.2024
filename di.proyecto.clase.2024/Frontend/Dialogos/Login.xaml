@@ -19,7 +19,7 @@
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
                 <GradientStop Offset="0.0" Color="#A04747" />
-                <GradientStop Offset="1.0" Color="#D8A25E" />
+                <GradientStop Offset="1.0" Color="#EEDF7A" />
             </LinearGradientBrush>
         </Grid.Background>
 
@@ -35,7 +35,7 @@
         <Grid
             Grid.Row="2"
             Grid.Column="1"
-            Background="#181818">
+            Background="#343131">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
@@ -51,8 +51,15 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontSize="35"
-                Foreground="White"
-                Text="L O G I N" />
+                
+                Text="L O G I N" >
+                <TextBlock.Foreground>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop Offset="0.0" Color="#A04747" />
+                        <GradientStop Offset="1.0" Color="#EEDF7A" />
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+                </TextBlock>
             <TextBlock
                 Grid.Row="1"
                 HorizontalAlignment="Center"
@@ -71,7 +78,6 @@
                 HorizontalAlignment="Center"
                 mat:HintAssist.HintHorizontalAlignment="Center"
                 mat:TextFieldAssist.TextFieldCornerRadius="20"
-                BorderBrush="#EEDF7A"
                 BorderThickness="2"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 TextChanged="introName_TextChanged">
@@ -82,7 +88,12 @@
                         Foreground="White"
                         Text="Usuario" />
                 </mat:HintAssist.Hint>
-
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop Offset="0.0" Color="#A04747" />
+                        <GradientStop Offset="1.0" Color="#EEDF7A" />
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
             </TextBox>
 
             <!--  Contrasenya  -->
@@ -95,7 +106,6 @@
                 HorizontalAlignment="Center"
                 mat:HintAssist.HintHorizontalAlignment="Center"
                 mat:TextFieldAssist.TextFieldCornerRadius="20"
-                BorderBrush="#EEDF7A"
                 BorderThickness="2"
                 Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}">
                 <mat:HintAssist.Hint>
@@ -105,6 +115,12 @@
                         Foreground="White"
                         Text="Contraseña" />
                 </mat:HintAssist.Hint>
+                <PasswordBox.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop Offset="0.0" Color="#A04747" />
+                        <GradientStop Offset="1.0" Color="#EEDF7A" />
+                    </LinearGradientBrush>
+                </PasswordBox.BorderBrush>
             </PasswordBox>
             <Button
                 Grid.Row="4"
@@ -121,12 +137,12 @@
                 Height="40"
                 HorizontalAlignment="Center"
                 mat:ButtonAssist.CornerRadius="10"
-                Background="Transparent"
-                BorderBrush="#EEDF7A"
+                Background="#D8A25E"
+                BorderBrush="Black"
                 Click="btnLogin_Click"
                 Content="Login"
                 FontSize="10"
-                Foreground="Gray"
+                Foreground="#EEDF7A"
                 IsDefault="True" />
             <Grid
                 Grid.Row="6"
@@ -149,7 +165,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Cursor="Hand"
-                    Foreground="White"
+                    Foreground="#A04747"
                     Kind="Github"
                     MouseLeftButtonUp="github_MouseLeftButtonUp" />
                 <mat:PackIcon
@@ -162,7 +178,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Cursor="Hand"
-                    Foreground="White"
+                    Foreground="#D8A25E"
                     Kind="Linkedin"
                     MouseLeftButtonDown="linkedin_MouseLeftButtonDown" />
                 <mat:PackIcon
@@ -175,7 +191,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Cursor="Hand"
-                    Foreground="White"
+                    Foreground="#EEDF7A"
                     Kind="Instagram"
                     MouseLeftButtonDown="Instagram_MouseLeftButtonDown" />
             </Grid>
