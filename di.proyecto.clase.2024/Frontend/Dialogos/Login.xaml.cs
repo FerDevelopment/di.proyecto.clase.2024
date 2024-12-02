@@ -19,7 +19,7 @@ namespace di.proyecto.clase._2024.Frontend.Dialogos
         {
             if (ConectarBD())
             {
-             
+
                 InitializeComponent();
             }
         }
@@ -68,7 +68,7 @@ namespace di.proyecto.clase._2024.Frontend.Dialogos
 
         }
 
-      
+
 
         private void github_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -95,6 +95,11 @@ namespace di.proyecto.clase._2024.Frontend.Dialogos
                 FileName = "https://www.instagram.com/fer_developer?igsh=MXhreHNjZXNiYmV5MQ==",
                 UseShellExecute = true // Esto es necesario para abrir el navegador predeterminado
             });
+        }
+
+        private void introName_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -50,5 +50,10 @@ namespace di.proyecto.clase._2024
             DialogoArticuloMVC diaAr = new DialogoArticuloMVC(contexto);
             diaAr.ShowDialog();
         }
+
+        private void btnUsuarioNuevo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
