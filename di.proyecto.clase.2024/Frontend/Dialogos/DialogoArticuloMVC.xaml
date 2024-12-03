@@ -23,7 +23,7 @@
             <RowDefinition Height="11*" />
         </Grid.RowDefinitions>
         <!--  Titulo  -->
-        <Grid Grid.Row="0" Background="#444444">
+        <Grid Grid.Row="0" Background="#343131">
             <TextBlock
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -37,7 +37,8 @@
             Grid.Row="1"
             Margin="10,5,0,0"
             FontWeight="Bold"
-            Text="Los campos con asteriscos (*) son obligatorios" />
+            Text="Los campos con asteriscos (*) son obligatorios" 
+            Foreground="#EEDF7A"/>
         <!--  Entradas  -->
         <Grid Grid.Row="2" Margin="10">
             <Grid.RowDefinitions>
@@ -67,12 +68,13 @@
                     <TextBlock
                         FontSize="20"
                         FontStyle="Oblique"
-                        Foreground="Red"
+                       Foreground="#A04747"
                         Text="DATOS DEL ARTICULO" />
                     <Separator />
                 </StackPanel>
 
                 <TextBox
+                    Foreground="#EEDF7A"
                     x:Name="numeroSerie"
                     Grid.Row="4"
                     Grid.ColumnSpan="2"
@@ -93,9 +95,10 @@
                     Margin="15,0,0,0"
                     VerticalAlignment="Center"
                     mat:HintAssist.Hint="Selecciona un modelo*"
-                    DisplayMemberPath="Nombre"
+                    DisplayMemberPath="nombre"
                     FontWeight="Black" />
                 <ComboBox
+                    Foreground="#EEDF7A"
                     x:Name="comboEstado"
                     Grid.Row="2"
                     Grid.Column="0"
@@ -104,6 +107,7 @@
                     mat:HintAssist.Hint="Selecciona un estado" />
                 <!--  Parte derecha  -->
                 <DatePicker
+                    Foreground="#EEDF7A"
                     x:Name="fechaAlta"
                     Grid.Row="1"
                     Grid.Column="1"
@@ -111,6 +115,7 @@
                     VerticalAlignment="Center"
                     mat:HintAssist.Hint="Selecciona una fecha" />
                 <ComboBox
+                    Foreground="#EEDF7A"
                     x:Name="usuario"
                     Grid.Row="2"
                     Grid.Column="1"
@@ -143,7 +148,7 @@
                     <TextBlock
                         FontSize="20"
                         FontStyle="Oblique"
-                        Foreground="Red"
+                        Foreground="#A04747"
                         Text="UBICACIÓN" />
                     <Separator />
                 </StackPanel>
@@ -152,6 +157,7 @@
 
                 <!--  Parte izquierda  -->
                 <ComboBox
+                    Foreground="#EEDF7A"
                     x:Name="comboDepartamento"
                     Grid.Row="1"
                     Grid.Column="0"
@@ -164,6 +170,7 @@
                 <!--  Parte derecha  -->
                 <ComboBox
                     x:Name="comboEspacio"
+                    Foreground="#EEDF7A"
                     Grid.Row="1"
                     Grid.Column="1"
                     Margin="15,0,0,0"
@@ -174,6 +181,7 @@
 
                 <TextBox
                     x:Name="obvservaciones"
+                    Foreground="#EEDF7A"
                     Grid.Row="2"
                     Grid.ColumnSpan="2"
                     Height="auto"
