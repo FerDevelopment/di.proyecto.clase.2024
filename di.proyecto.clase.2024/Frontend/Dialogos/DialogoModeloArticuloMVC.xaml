@@ -10,6 +10,7 @@
     Title="DialogoModeloArticuloMVC"
     Width="800"
     Height="450"
+    Background="#343131"
     mc:Ignorable="d">
     <Grid
         MaxWidth="500"
@@ -104,7 +105,9 @@
             <Button
                 x:Name="Cancelar"
                 Margin="10,0,20,0"
+                Background="#D8A25E"
                 Click="Cancelar_Click"
+                Foreground="#A04747"
                 Style="{StaticResource MaterialDesignOutlinedButton}">
                 <Button.Content>
                     <TextBlock Text="Cancelar" />
@@ -112,7 +115,11 @@
             </Button>
             <Button
                 x:Name="Guardar"
+                Background="Transparent"
+                BorderBrush="#D8A25E"
+                BorderThickness="2"
                 Click="Guardar_Click"
+                Foreground="#D8A25E"
                 Style="{StaticResource MaterialDesignOutlinedButton}"
                 Visibility="Hidden">
                 <Button.Content>

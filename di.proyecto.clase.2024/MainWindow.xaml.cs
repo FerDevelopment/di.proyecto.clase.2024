@@ -47,7 +47,7 @@ namespace di.proyecto.clase._2024
 
         private void btnArticuloNuevo_Click(object sender, RoutedEventArgs e)
         {
-            DialogoArticuloMVC diaAr = new DialogoArticuloMVC(contexto);
+            DialogoArticuloMVC diaAr = new DialogoArticuloMVC(contexto, usuario);
             diaAr.ShowDialog();
         }
 
