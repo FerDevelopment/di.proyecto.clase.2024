@@ -73,12 +73,12 @@ namespace di.proyecto.clase._2024.Frontend.Dialogos
 
             if (await modeloArticuloServicio.AddAsync(RecogeDatos()))
             {
-                _ = this.ShowMessageAsync("Gestión de Articulos", "Modelo creado e insertado correctamente");
+              await this.ShowMessageAsync("Gestión de Articulos", "Modelo creado e insertado correctamente");
                 DialogResult = true;
             }
             else
             {
-                _ = this.ShowMessageAsync("Gestión de Articulos", "Modelo no insertado, campos incorrectos");
+                await this.ShowMessageAsync("Gestión de Articulos", "Modelo no insertado, campos incorrectos");
             }
         }
 

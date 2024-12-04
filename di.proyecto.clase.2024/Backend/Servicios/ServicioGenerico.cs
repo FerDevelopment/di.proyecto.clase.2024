@@ -63,8 +63,13 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             {
                 resultado = false;
                GuardarExcepcion(ex, $"Error al agregar entidad de tipo {typeof(T).Name}");
-                throw new Exception("Error en el Insert");
+               
             }
+            finally
+            {
+                resultado=false;
+            }
+
             return resultado;
         }
 
@@ -105,7 +110,7 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             catch (Exception ex)
             {
                GuardarExcepcion(ex, $"Error al eliminar entidad de tipo {typeof(T).Name} con ID {id}");
-                throw new Exception("Error al eliminar");
+              
             }
         }
 
