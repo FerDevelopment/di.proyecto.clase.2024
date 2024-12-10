@@ -11,7 +11,16 @@
     Width="800"
     Height="450"
     Background="#343131"
+    TitleForeground="Black"
     mc:Ignorable="d">
+    <mah:MetroWindow.WindowTitleBrush>
+        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientStop Offset="0.0" Color="#EEDF7A" />
+            <GradientStop Offset="0.33" Color="#D8A25E" />
+            <GradientStop Offset="0.66" Color="#A04747" />
+            <GradientStop Offset="1.0" Color="#343131" />
+        </LinearGradientBrush>
+    </mah:MetroWindow.WindowTitleBrush>
     <Grid
         MaxWidth="500"
         Margin="20,0,0,0"

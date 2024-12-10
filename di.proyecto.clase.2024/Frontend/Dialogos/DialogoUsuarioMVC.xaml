@@ -10,7 +10,16 @@
     Title="DialogoUsuarioMVC"
     Width="700"
     Height="540"
+    TitleForeground="Black"
     mc:Ignorable="d">
+    <mah:MetroWindow.WindowTitleBrush>
+        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientStop Offset="0.0" Color="#EEDF7A" />
+            <GradientStop Offset="0.33" Color="#D8A25E" />
+            <GradientStop Offset="0.66" Color="#A04747" />
+            <GradientStop Offset="1.0" Color="#343131" />
+        </LinearGradientBrush>
+    </mah:MetroWindow.WindowTitleBrush>
     <Grid
         MaxWidth="700"
         MaxHeight="540"
@@ -74,8 +83,8 @@
                     Margin="15,15,35,15"
                     HorizontalAlignment="Stretch"
                     mat:HintAssist.Hint="Primer Apellido"
-                    Foreground="#EEDF7A"
                     FontWeight="Bold"
+                    Foreground="#EEDF7A"
                     MaxLength="45" />
                 <TextBox
                     x:Name="apellido2"
@@ -84,8 +93,8 @@
                     Margin="15,15,35,15"
                     HorizontalAlignment="Stretch"
                     mat:HintAssist.Hint="Segundo Apellido"
-                    Foreground="#EEDF7A"
                     FontWeight="Bold"
+                    Foreground="#EEDF7A"
                     MaxLength="45" />
                 <TextBox
                     x:Name="email"
@@ -93,18 +102,19 @@
                     Grid.Column="1"
                     Margin="15"
                     HorizontalAlignment="Stretch"
-                    Foreground="#EEDF7A"
                     mat:HintAssist.Hint="Email"
-                    FontWeight="Bold" Text="" />
+                    FontWeight="Bold"
+                    Foreground="#EEDF7A"
+                    Text="" />
             </Grid>
             <TextBox
                 x:Name="domicilio"
                 Grid.Row="2"
-                Foreground="#EEDF7A"
                 Margin="15"
                 HorizontalAlignment="Stretch"
                 mat:HintAssist.Hint="Domicilio"
                 FontWeight="Bold"
+                Foreground="#EEDF7A"
                 MaxLength="45" />
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
@@ -116,9 +126,9 @@
                     Grid.Column="0"
                     Margin="15,15,35,15"
                     HorizontalAlignment="Stretch"
-                    Foreground="#EEDF7A"
                     mat:HintAssist.Hint="Poblacion"
                     FontWeight="Bold"
+                    Foreground="#EEDF7A"
                     MaxLength="45" />
                 <Grid Grid.Row="0" Grid.Column="1">
                     <Grid.ColumnDefinitions>
@@ -129,20 +139,20 @@
                         x:Name="telefono"
                         Grid.Column="0"
                         Margin="15,0,0,0"
-                        Foreground="#EEDF7A"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         mat:HintAssist.Hint="Telefono"
-                        FontWeight="Bold" />
+                        FontWeight="Bold"
+                        Foreground="#EEDF7A" />
                     <TextBox
                         x:Name="codigoPostal"
                         Grid.Column="1"
                         Margin="15,0,15,0"
-                        Foreground="#EEDF7A"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         mat:HintAssist.Hint="Codigo Postal"
-                        FontWeight="Bold" />
+                        FontWeight="Bold"
+                        Foreground="#EEDF7A" />
                 </Grid>
             </Grid>
             <StackPanel Grid.Row="4" Margin="0,0,0,0">
@@ -167,20 +177,20 @@
                     <TextBox
                         x:Name="usuario"
                         Grid.Column="0"
-                        Foreground="#EEDF7A"
                         Margin="0,0,20,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         mat:HintAssist.Hint="Nombre de usuario*"
-                        FontWeight="Bold" />
+                        FontWeight="Bold"
+                        Foreground="#EEDF7A" />
                     <PasswordBox
                         x:Name="contrasenya"
                         Grid.Column="1"
-                        Foreground="#EEDF7A"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         mat:HintAssist.Hint="Contraseña*"
-                        FontWeight="Bold" />
+                        FontWeight="Bold"
+                        Foreground="#EEDF7A" />
                 </Grid>
                 <ComboBox
                     x:Name="comboUsuario"
@@ -196,12 +206,12 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <ComboBox
-    Grid.Column="0"
-    Foreground="#EEDF7A"
-    Margin="15,0,35,5"
-    Padding="0,0,0,15"
-    mat:HintAssist.Hint="Selecciona un rol de usuario*"
-    FontWeight="Bold" />
+                    Grid.Column="0"
+                    Margin="15,0,35,5"
+                    Padding="0,0,0,15"
+                    mat:HintAssist.Hint="Selecciona un rol de usuario*"
+                    FontWeight="Bold"
+                    Foreground="#EEDF7A" />
                 <Grid Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -214,20 +224,20 @@
                     <ComboBox
                         x:Name="comboDepartamento"
                         Grid.Column="0"
+                        Margin="15,0,0,0"
                         Padding="0,0,0,15"
-                         Margin="15,0,0,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         mat:HintAssist.Hint="Selecciona un departamento"
                         FontWeight="Bold" />
                     <ComboBox
                         Grid.Row="1"
-                        Foreground="#EEDF7A"
                         Grid.Column="0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         mat:HintAssist.Hint="Selecciona un grupo"
-                        FontWeight="Bold" />
+                        FontWeight="Bold"
+                        Foreground="#EEDF7A" />
                 </Grid>
                 <ComboBox
                     Grid.Column="0"

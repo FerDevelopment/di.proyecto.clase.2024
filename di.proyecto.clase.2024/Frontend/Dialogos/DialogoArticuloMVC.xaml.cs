@@ -6,56 +6,30 @@
     using MahApps.Metro.Controls.Dialogs;
     using System.Windows;
 
-    /// <summary>
-    /// Interaction logic for DialogoArticuloMVC.xaml
-    /// </summary>
     public partial class DialogoArticuloMVC : MetroWindow
     {
-        /// <summary>
-        /// Defines the context
-        /// </summary>
         private DiinventarioexamenContext context;
 
-        /// <summary>
-        /// Defines the articuloServicio
-        /// </summary>
+        private Articulo articulo;
+
         private ArticuloServicio articuloServicio;
 
-        /// <summary>
-        /// Defines the modeloArticuloServicio
-        /// </summary>
         private ModeloArticuloServicio modeloArticuloServicio;
 
-        /// <summary>
-        /// Defines the estados
-        /// </summary>
         private List<String> estados = ["Operativo", "Obsoleto", "Mantenimiento"];
 
-        /// <summary>
-        /// Defines the dptoServicio
-        /// </summary>
         private DptoServicio dptoServicio;
 
-        /// <summary>
-        /// Defines the espacioServicio
-        /// </summary>
         private EspacioServicio espacioServicio;
 
-        /// <summary>
-        /// Defines the userLogin
-        /// </summary>
         private Usuario userLogin;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DialogoArticuloMVC"/> class.
-        /// </summary>
-        /// <param name="context">The context<see cref="DiinventarioexamenContext"/></param>
-        /// <param name="usu">The usu<see cref="Usuario"/></param>
         public DialogoArticuloMVC(DiinventarioexamenContext context, Usuario usu)
         {
             this.context = context;
             if (this.context != null)
             {
+                articulo = new Articulo();
                 this.userLogin = usu;
                 this.modeloArticuloServicio = new ModeloArticuloServicio(this.context);
                 this.articuloServicio = new ArticuloServicio(this.context);
@@ -72,9 +46,6 @@
             }
         }
 
-        /// <summary>
-        /// The CargarDatosAsync
-        /// </summary>
         private async void CargarDatosAsync()
         {
 
@@ -88,59 +59,53 @@
 
             usuario.Items.Add(userLogin);
             usuario.SelectedItem = userLogin;
-          
         }
 
-        /// <summary>
-        /// The btnCancelar_Click
-        /// </summary>
-        /// <param name="sender">The sender<see cref="object"/></param>
-        /// <param name="e">The e<see cref="RoutedEventArgs"/></param>
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        /// <summary>
-        /// The btnGuardar_Click
-        /// </summary>
-        /// <param name="sender">The sender<see cref="object"/></param>
-        /// <param name="e">The e<see cref="RoutedEventArgs"/></param>
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
-            if (await articuloServicio.AddAsync(recogerDatos()))
+            recogerDatos();
+            if (articuloServicio.NumserieUnico(articulo.Numserie))
             {
-                await this.ShowMessageAsync("Gestión de Articulos", "Articulo creado e insertado correctamente");
-                DialogResult = true;
+                if (await articuloServicio.AddAsync(articulo))
+                {
+                    await this.ShowMessageAsync("Gestión de Articulos", "Articulo creado e insertado correctamente");
+                    DialogResult = true;
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Gestión de Articulos", "Articulo no insertado, campos incorrectos");
+
+
+                }
             }
             else
             {
-                await this.ShowMessageAsync("Gestión de Articulos", "Articulo no insertado, campos incorrectos");
+                await this.ShowMessageAsync("Gestión de Articulos", "Articulo no insertado, Numero de serie Repetido");
+
 
             }
+
         }
 
-        /// <summary>
-        /// The recogerDatos
-        /// </summary>
-        /// <returns>The <see cref="Articulo"/></returns>
-        private Articulo recogerDatos()
+        private void recogerDatos()
         {
-            Articulo articulo = new Articulo();
 
             articulo.Idarticulo = articuloServicio.GetLastId() + 1;
-            articulo.Observaciones = obvservaciones.Text;
+            articulo.Observaciones = observaciones.Text;
             articulo.Fechaalta = fechaAlta.SelectedDate.HasValue ? fechaAlta.SelectedDate : DateTime.Now;
             articulo.Numserie = numeroSerie.Text;
 
-            articulo.Estado = (String)comboEstado.SelectedItem;
+            articulo.Estado = comboEstado.SelectedItem.ToString();
             articulo.DepartamentoNavigation = (Departamento)comboDepartamento.SelectedItem;
             articulo.EspacioNavigation = (Espacio)comboEspacio.SelectedItem;
-            articulo.UsuarioaltaNavigation = userLogin;
+            articulo.UsuarioaltaNavigation =  userLogin;
             articulo.ModeloNavigation = (Modeloarticulo)comboModelo.SelectedItem;
-
-            return articulo;
+            articulo.DentrodeNavigation = (Articulo)comboArmario.SelectedItem;
         }
     }
 }

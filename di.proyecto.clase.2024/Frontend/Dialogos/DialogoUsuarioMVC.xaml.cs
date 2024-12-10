@@ -1,4 +1,6 @@
-﻿using MahApps.Metro.Controls;
+﻿using di.proyecto.clase._2024.Backend.Modelo;
+using di.proyecto.clase._2024.Backend.Servicios;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +22,14 @@ namespace di.proyecto.clase._2024.Frontend.Dialogos
     /// </summary>
     public partial class DialogoUsuarioMVC : MetroWindow
     {
-        public DialogoUsuarioMVC()
+        private DiinventarioexamenContext contexto;
+        private UsuarioServicio usuarioServicio;
+        public DialogoUsuarioMVC(DiinventarioexamenContext contexto)
         {
+            if(contexto != null)
+            {
+                this.contexto = contexto;
+            }
             InitializeComponent();
         }
     }

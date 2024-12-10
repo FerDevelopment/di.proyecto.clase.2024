@@ -39,7 +39,7 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             /*"Select * from Table"*/
             try
             {
-               
+
                 return await _dbSet.ToListAsync();
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             bool resultado = true;
             try
             {
-               
+
                 await _dbSet.AddAsync(entity);
                 await _context.SaveChangesAsync();
 
@@ -62,13 +62,10 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             catch (Exception ex)
             {
                 resultado = false;
-               GuardarExcepcion(ex, $"Error al agregar entidad de tipo {typeof(T).Name}");
-               
+                GuardarExcepcion(ex, $"Error al agregar entidad de tipo {typeof(T).Name}");
+
             }
-            finally
-            {
-                resultado=false;
-            }
+
 
             return resultado;
         }
@@ -77,11 +74,11 @@ namespace di.proyecto.clase._2024.Backend.Servicios
         {
             try
             {
-               
+
                 _dbSet.Attach(entity);
                 _context.Entry(entity).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
-           
+
             }
             catch (Exception ex)
             {
@@ -90,12 +87,12 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             }
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(T entity)
         {
             try
             {
-               
-                var entity = await GetByIDAsync(id);
+
+
                 if (entity != null)
                 {
                     _dbSet.Remove(entity);
@@ -104,13 +101,13 @@ namespace di.proyecto.clase._2024.Backend.Servicios
                 }
                 else
                 {
-                   
+
                 }
             }
             catch (Exception ex)
             {
-               GuardarExcepcion(ex, $"Error al eliminar entidad de tipo {typeof(T).Name} con ID {id}");
-              
+                GuardarExcepcion(ex, $"Error al eliminar entidad de tipo {typeof(T).Name} con ID");
+
             }
         }
 
@@ -118,12 +115,12 @@ namespace di.proyecto.clase._2024.Backend.Servicios
         {
             try
             {
-              
+
                 return await _dbSet.Where(predicate).ToListAsync();
             }
             catch (Exception ex)
             {
-               GuardarExcepcion(ex, $"Error al buscar entidades de tipo {typeof(T).Name}");
+                GuardarExcepcion(ex, $"Error al buscar entidades de tipo {typeof(T).Name}");
                 throw new Exception("Error en la SQL");
             }
         }

@@ -21,6 +21,7 @@ namespace di.proyecto.clase._2024.Frontend.Dialogos
             {
 
                 InitializeComponent();
+                introName.Focus(); 
             }
         }
 

@@ -51,15 +51,14 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontSize="35"
-                
-                Text="L O G I N" >
+                Text="L O G I N">
                 <TextBlock.Foreground>
                     <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0.0" Color="#A04747" />
                         <GradientStop Offset="1.0" Color="#EEDF7A" />
                     </LinearGradientBrush>
                 </TextBlock.Foreground>
-                </TextBlock>
+            </TextBlock>
             <TextBlock
                 Grid.Row="1"
                 HorizontalAlignment="Center"
