@@ -1,0 +1,149 @@
+﻿<mah:MetroWindow
+    x:Class="di.proyecto.clase._2024.Frontend.Dialogos.DialogoModeloArticuloMVVM"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:di.proyecto.clase._2024.Frontend.Dialogos"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="DialogoModeloArticuloMVC"
+    Width="800"
+    Height="450"
+    Background="#343131"
+    TitleForeground="Black"
+    mc:Ignorable="d">
+    <mah:MetroWindow.WindowTitleBrush>
+        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientStop Offset="0.0" Color="#EEDF7A" />
+            <GradientStop Offset="0.33" Color="#D8A25E" />
+            <GradientStop Offset="0.66" Color="#A04747" />
+            <GradientStop Offset="1.0" Color="#343131" />
+        </LinearGradientBrush>
+    </mah:MetroWindow.WindowTitleBrush>
+    <Grid
+        MaxWidth="500"
+        Margin="20,0,0,0"
+        HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Nombre  -->
+        <TextBox
+            x:Name="nombre"
+            Grid.Row="0"
+            Width="190"
+            Height="30"
+            Margin="10,0,20,0"
+            HorizontalAlignment="Left"
+            MaxLength="45"
+            SelectionChanged="nombre_SelectionChanged"
+            Text="{Binding name, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
+            <mat:HintAssist.Hint>
+                <TextBlock FontWeight="ExtraBold" Text="Nombre*" />
+            </mat:HintAssist.Hint>
+        </TextBox>
+        <!--  Marca  -->
+        <TextBox
+            x:Name="marca"
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="190"
+            Height="30"
+            Margin="10,0,20,0"
+            HorizontalAlignment="Left">
+            <mat:HintAssist.Hint>
+                <TextBlock Text="marca" />
+            </mat:HintAssist.Hint>
+        </TextBox>
+        <!--  Modelo  -->
+        <TextBox
+            x:Name="modeloArticulo"
+            Grid.Row="1"
+            Width="190"
+            Height="30"
+            Margin="10,0,20,0"
+            HorizontalAlignment="Left">
+            <mat:HintAssist.Hint>
+                <TextBlock Text="modelo" />
+            </mat:HintAssist.Hint>
+
+        </TextBox>
+        <!--  Tipo  -->
+        <ComboBox
+            x:Name="tipoArticulo"
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="190"
+            Height="30"
+            Margin="10,0,20,0"
+            HorizontalAlignment="Left"
+            DisplayMemberPath="Nombre"
+            FontWeight="ExtraBold"
+            SelectionChanged="tipoArticulo_SelectionChanged">
+            <mat:HintAssist.Hint>
+                <TextBlock FontWeight="ExtraBold" Text="Seleccione*" />
+            </mat:HintAssist.Hint>
+        </ComboBox>
+
+
+        <!--  Descripcion  -->
+        <TextBox
+            x:Name="descripcion"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Width="600"
+            Height="30"
+            Margin="10,0,20,0"
+            HorizontalAlignment="Left">
+            <mat:HintAssist.Hint>
+                <TextBlock Text="Descripcion" />
+            </mat:HintAssist.Hint>
+        </TextBox>
+
+        <!--  Botones  -->
+        <WrapPanel Grid.Row="4" VerticalAlignment="Center">
+            <Button
+                x:Name="Cancelar"
+                Margin="10,0,20,0"
+                Background="#D8A25E"
+                Click="Cancelar_Click"
+                Foreground="#A04747"
+                Style="{StaticResource MaterialDesignOutlinedButton}">
+                <Button.Content>
+                    <TextBlock Text="Cancelar" />
+                </Button.Content>
+            </Button>
+            <Button
+                x:Name="Guardar"
+                Background="Transparent"
+                BorderBrush="#D8A25E"
+                BorderThickness="2"
+                Click="Guardar_Click"
+                Foreground="#D8A25E"
+                Style="{StaticResource MaterialDesignOutlinedButton}"
+                Visibility="Hidden">
+                <Button.Content>
+                    <TextBlock Text="Guardar" />
+                </Button.Content>
+            </Button>
+        </WrapPanel>
+
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            FontWeight="ExtraBold"
+            Text="Los campos con '*' son obligatorios" />
+
+    </Grid>
+</mah:MetroWindow>

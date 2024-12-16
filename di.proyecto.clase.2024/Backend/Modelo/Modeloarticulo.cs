@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using di.proyecto.clase._2024.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace di.proyecto.clase._2024.Backend.Modelo;
 
 [Table("modeloarticulo")]
 [Index("Tipo", Name = "fk_tipoarticulos_modeloarticulo_idx")]
-public partial class Modeloarticulo
+public partial class Modeloarticulo: PropertyChangedDataError
 {
     /// <summary>
     /// Es un catalogo de articulos existentes. De cada modelo puede haber varias unidades con distintos numeros de serie, etc
@@ -19,6 +20,7 @@ public partial class Modeloarticulo
 
     [Column("nombre")]
     [StringLength(45)]
+    [Required(ErrorMessage = "El modelo ha de tener nombre")]
     public string? Nombre { get; set; }
 
     [Column("descripcion", TypeName = "mediumtext")]
@@ -33,6 +35,9 @@ public partial class Modeloarticulo
     public string? Modelo { get; set; }
 
     [Column("tipo")]
+    [InverseProperty("Modeloarticulos")]
+    [Required]
+    
     public int? Tipo { get; set; }
 
     [InverseProperty("ModeloNavigation")]

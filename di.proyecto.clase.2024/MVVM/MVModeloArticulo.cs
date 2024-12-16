@@ -24,10 +24,14 @@ namespace di.proyecto.clase._2024.MVVM
         public MVModeloArticulo(DiinventarioexamenContext context)
         {
             contexto = context;
-            Inicialize();
-        }
+            if (contexto != null)
+            {
 
-        private async void Inicialize()
+                Inicialize();
+            }
+        } 
+
+        private void Inicialize()
         {
 
             if (contexto != null)

@@ -7,9 +7,9 @@
     using System.Windows;
 
     /// <summary>
-    /// Defines the <see cref="DialogoArticuloMVC" />
+    /// Defines the <see cref="DialogoArticuloMVVM" />
     /// </summary>
-    public partial class DialogoArticuloMVC : MetroWindow
+    public partial class DialogoArticuloMVVM : MetroWindow
     {
         /// <summary>
         /// Defines the context
@@ -56,7 +56,7 @@
         /// </summary>
         /// <param name="context">The context<see cref="DiinventarioexamenContext"/></param>
         /// <param name="usu">The usu<see cref="Usuario"/></param>
-        public DialogoArticuloMVC(DiinventarioexamenContext context, Usuario usu)
+        public DialogoArticuloMVVM(DiinventarioexamenContext context, Usuario usu)
         {
             this.context = context;
             if (this.context != null)

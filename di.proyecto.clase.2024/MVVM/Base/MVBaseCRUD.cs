@@ -54,18 +54,21 @@ namespace di.proyecto.clase._2024.MVVM.Base
         /// </summary>
         /// <param name="entity">Objeto que se borra</param>
         /// <returns></returns>
-        public async Task<bool> Delete(T entity)
+        public async Task<bool> Delete(int id)
         {
             bool correcto = true;
+           
             try
             {
-                await servicio.DeleteAsync(entity);
+             
+
+                await servicio.DeleteAsync(id);
             }
             catch (DbUpdateException dbex)
             {
                 correcto = false;
                 // Guardamos en el Log el error
-                log.Error("\n" + "Insertando un nuevo objeto ..." + entity.GetType() + "\n" + dbex.Message + "\n" + dbex.StackTrace);
+                log.Error("\n" + "Error al borrar el objeto ..."+ "\n" + dbex.Message + "\n" + dbex.StackTrace);
             }
             return correcto;
         }

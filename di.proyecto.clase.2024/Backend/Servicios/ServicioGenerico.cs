@@ -87,11 +87,12 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             }
         }
 
-        public async Task DeleteAsync(T entity)
+        public async Task DeleteAsync(int id)
         {
             try
             {
 
+                T entity = await _dbSet.FindAsync(id);
 
                 if (entity != null)
                 {
