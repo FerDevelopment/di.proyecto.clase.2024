@@ -9,38 +9,38 @@ using System.Threading.Tasks;
 
 namespace di.proyecto.clase._2024.MVVM
 {
-    public class MVModeloArticulo : MVBaseCRUD<MVModeloArticulo>
+    public class MVModeloArticulo : MVBaseCRUD<Modeloarticulo>
     {
-        /*Variables privadas ******************/
         private DiinventarioexamenContext contexto;
-        private ModeloArticuloServicio modeloArticuloServicio;
-        private TipoArticuloServicio tipoArticuloServicioServicio;
         private Modeloarticulo modelo;
-        /*Variables publicas ******************/
-        public IEnumerable<Tipoarticulo> listaTipos { get { return Task.Run(tipoArticuloServicioServicio.GetAllAsync).Result; } }
-        public bool guarda { get { return Task.Run(() => modeloArticuloServicio.AddAsync(modelo)).Result; } }
-
+        private TipoArticuloServicio tipoArticuloServicio;
+        private ModeloArticuloServicio modeloArticuloServicio;
+        private IEnumerable<Modeloarticulo> _listaModelos;
+        public IEnumerable<Tipoarticulo> listaTipos { get { return Task.Run(tipoArticuloServicio.GetAllAsync).Result; } }
+        public IEnumerable<Modeloarticulo> listaModelos => _listaModelos;
+        public Modeloarticulo modeloArticulo
+        {
+            get { return modelo; }
+            set { modelo = value; OnPropertyChanged(nameof(modeloArticulo)); }
+        }
+        public bool guarda { get { return Task.Run(() => Add(modeloArticulo)).Result; } }
 
         public MVModeloArticulo(DiinventarioexamenContext context)
+
         {
             contexto = context;
-            if (contexto != null)
-            {
+            Inicializa();
+        }
 
-                Inicialize();
-            }
-        } 
-
-        private void Inicialize()
+        public async void Inicializa()
         {
 
-            if (contexto != null)
-            {
-                modeloArticuloServicio = new ModeloArticuloServicio(contexto);
-                tipoArticuloServicioServicio = new TipoArticuloServicio(contexto);
-            }
+            modeloArticuloServicio = new ModeloArticuloServicio(contexto);
+            tipoArticuloServicio = new TipoArticuloServicio(contexto);
+            _listaModelos = await modeloArticuloServicio.GetAllAsync();
             modelo = new Modeloarticulo();
-
+            servicio = modeloArticuloServicio;
         }
+
     }
 }

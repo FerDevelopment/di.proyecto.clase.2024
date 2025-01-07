@@ -59,10 +59,10 @@
         </LinearGradientBrush>
     </mah:MetroWindow.WindowTitleBrush>
 
-    <DockPanel Background="#343131">
+    <DockPanel x:Name="dockPanelMain" Background="#343131">
 
 
-        <Grid DockPanel.Dock="Left">
+        <Grid DockPanel.Dock="Top">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
@@ -122,7 +122,10 @@
                             <mat:PackIcon Kind="EditBoxOutline" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Lista">
+                    <MenuItem
+                        x:Name="btnListaArticulos"
+                        Click="btnListaArticulos_Click"
+                        Header="_Lista de articulos">
                         <MenuItem.Icon>
                             <mat:PackIcon Kind="ViewListOutline" />
                         </MenuItem.Icon>
@@ -138,7 +141,10 @@
                             <mat:PackIcon Kind="ArchiveArrowUp" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Lista Modelo Articulo">
+                    <MenuItem
+                        x:Name="listaModeloBoton"
+                        Click="listaModeloBoton_Click"
+                        Header="_Lista Modelo Articulo">
                         <MenuItem.Icon>
                             <mat:PackIcon Kind="FormatListBulleted" />
                         </MenuItem.Icon>
@@ -171,6 +177,8 @@
                     Style="{StaticResource MahApps.Styles.MenuItem}" />
             </Menu>
         </Grid>
+
+        <Grid x:Name="panelCentral" DockPanel.Dock="Bottom" />
 
     </DockPanel>
 

@@ -67,7 +67,6 @@
 
   <ItemGroup>
     <Folder Include="Backend\Modelo-Pojos\" />
-    <Folder Include="Frontend\ControlUsuario\" />
     <Folder Include="MVVM\Base\" />
     <Folder Include="Source\Estilos\" />
     <Folder Include="Source\Imagenes\" />

@@ -1,5 +1,7 @@
 ﻿using di.proyecto.clase._2024.Backend.Modelo;
+using di.proyecto.clase._2024.Frontend.ControlUsuario;
 using di.proyecto.clase._2024.Frontend.Dialogos;
+using di.proyecto.clase._2024.MVVM;
 using MahApps.Metro.Controls;
 using System.Text;
 using System.Windows;
@@ -22,12 +24,16 @@ namespace di.proyecto.clase._2024
     {
         Usuario usuario;
         DiinventarioexamenContext contexto;
+        private MVModeloArticulo mVModeloArticulo;
+        private MVArticulo mvArt;
         public MainWindow(Usuario usu, DiinventarioexamenContext context)
         {
             this.usuario = usu;
             this.contexto = context;
             InitializeComponent();
             nombreUsu.Text = usuario.Nombre;
+            mVModeloArticulo= new MVModeloArticulo(contexto);
+            mvArt= new MVArticulo(contexto);
         }
 
         private void cerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -53,6 +59,28 @@ namespace di.proyecto.clase._2024
 
         private void btnUsuarioNuevo_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+     
+
+        private void listaModeloBoton_Click(object sender, RoutedEventArgs e)
+        {
+            UCModeloArticulo uc= new UCModeloArticulo(mVModeloArticulo);
+            panelCentral.Children.Clear();
+            Grid.SetColumn(uc, 0);
+            Grid.SetRow(uc, 0);
+            panelCentral.Children.Add(uc);
+        }
+
+        private void btnListaArticulos_Click(object sender, RoutedEventArgs e)
+        {
+
+            UCArticulo uc = new UCArticulo(mvArt);
+            panelCentral.Children.Clear();
+            Grid.SetColumn(uc, 0);
+            Grid.SetRow(uc, 0);
+            panelCentral.Children.Add(uc);
 
         }
     }
