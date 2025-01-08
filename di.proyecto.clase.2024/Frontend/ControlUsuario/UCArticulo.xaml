@@ -20,8 +20,33 @@
                 <DataGridTextColumn Binding="{Binding Numserie}" Header="Numero de serie" />
                 <DataGridTextColumn Binding="{Binding Estado}" Header="Estado" />
 
-                <DataGridTextColumn Binding="{Binding Fechaalta}" Header="Fecha de alta" />
-                <DataGridTextColumn Binding="{Binding Fechabaja}" Header="Fecha de baja" />
+
+                <DataGridTemplateColumn Header="Fecha de alta">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Fechaalta}" />
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Fechaalta}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Fecha de baja">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Fechabaja}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Fechabaja}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding Usuarioalta}" Header="Usuario de alta" />
                 <DataGridTextColumn Binding="{Binding ModeloNavigation.Nombre}" Header="Modelo" />
 

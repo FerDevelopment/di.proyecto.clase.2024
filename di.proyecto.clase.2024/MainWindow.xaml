@@ -164,6 +164,14 @@
                             <mat:PackIcon Kind="UserAdd" />
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem
+                        x:Name="btnListaUser"
+                        Click="btnListaUser_Click"
+                        Header="Lista de usuarios">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="FormatListBulleted" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
                 <!--  Inventario  -->
                 <MenuItem

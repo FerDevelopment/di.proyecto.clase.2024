@@ -26,6 +26,7 @@ namespace di.proyecto.clase._2024
         DiinventarioexamenContext contexto;
         private MVModeloArticulo mVModeloArticulo;
         private MVArticulo mvArt;
+        private MVUsuario mvUser;
         public MainWindow(Usuario usu, DiinventarioexamenContext context)
         {
             this.usuario = usu;
@@ -34,6 +35,7 @@ namespace di.proyecto.clase._2024
             nombreUsu.Text = usuario.Nombre;
             mVModeloArticulo= new MVModeloArticulo(contexto);
             mvArt= new MVArticulo(contexto);
+            mvUser = new MVUsuario(contexto);
         }
 
         private void cerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -82,6 +84,15 @@ namespace di.proyecto.clase._2024
             Grid.SetRow(uc, 0);
             panelCentral.Children.Add(uc);
 
+        }
+
+        private void btnListaUser_Click(object sender, RoutedEventArgs e)
+        {
+            UCUsuario uc = new UCUsuario(mvUser);
+            panelCentral.Children.Clear();
+            Grid.SetColumn(uc, 0);
+            Grid.SetRow(uc, 0);
+            panelCentral.Children.Add(uc);
         }
     }
 }
