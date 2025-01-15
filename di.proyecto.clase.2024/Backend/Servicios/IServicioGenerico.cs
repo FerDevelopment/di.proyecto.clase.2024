@@ -19,10 +19,10 @@ namespace di.proyecto.clase._2024.Backend.Servicios
         Task<bool> AddAsync(T entity);
 
         //Actualiza un objeto en la tabla
-        Task UpdateAsync(T entity);
+        Task<bool> UpdateAsync(T entity);
 
         //Elimina un objeto d ela tabla
-        Task DeleteAsync(int id);
+        Task<bool> DeleteAsync(int id);
 
         //Devuelve una lista filtrada. Select * . . . where
         Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate);

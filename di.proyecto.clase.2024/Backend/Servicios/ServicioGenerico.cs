@@ -55,7 +55,7 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             try
             {
 
-                await _dbSet.AddAsync(entity);
+                _dbSet.AddAsync(entity);
                 await _context.SaveChangesAsync();
 
             }
@@ -70,25 +70,29 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             return resultado;
         }
 
-        public async Task UpdateAsync(T entity)
+        public async Task<bool> UpdateAsync(T entity)
         {
+            bool lito = true;
             try
             {
 
-                _dbSet.Attach(entity);
-                _context.Entry(entity).State = EntityState.Modified;
+                _dbSet.Update(entity);
+               // _context.Entry(entity).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
 
             }
             catch (Exception ex)
             {
+                lito= false;
                 GuardarExcepcion(ex, $"Error al actualizar entidad de tipo {typeof(T).Name}");
                 throw new Exception("Error al Actualizar");
             }
+            return lito;
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
+            bool lito = true;
             try
             {
 
@@ -107,9 +111,12 @@ namespace di.proyecto.clase._2024.Backend.Servicios
             }
             catch (Exception ex)
             {
+                lito = false;
                 GuardarExcepcion(ex, $"Error al eliminar entidad de tipo {typeof(T).Name} con ID");
 
             }
+
+            return lito;
         }
 
         public async Task<IEnumerable<T>> FindAsync(Expression<Func</*Lo que recibe*/T, /*Lo que devuelve*/bool>> predicate)

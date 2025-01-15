@@ -28,6 +28,7 @@ namespace di.proyecto.clase._2024.Frontend.Dialogos
         private ModeloArticuloServicio modeloArticuloServicio;
         private TipoArticuloServicio tipoArticuloServicio; 
 
+
         public DialogoModeloArticuloMVVM(DiinventarioexamenContext context)
         {
             this.contexto = context;
