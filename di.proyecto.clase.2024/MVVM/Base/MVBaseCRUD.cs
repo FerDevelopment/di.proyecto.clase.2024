@@ -41,5 +41,7 @@ namespace di.proyecto.clase._2024.MVVM.Base
 
             return await servicio.DeleteAsync(id); ;
         }
+
+        
     }
 }

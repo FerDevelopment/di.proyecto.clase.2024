@@ -49,4 +49,10 @@ public partial class Modeloarticulo: PropertyChangedDataError
     [ForeignKey("Tipo")]
     [InverseProperty("Modeloarticulos")]
     public virtual Tipoarticulo? TipoNavigation { get; set; }
+
+    public Modeloarticulo Clone()
+    {
+        return this.MemberwiseClone() as Modeloarticulo;
+    }
+
 }

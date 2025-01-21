@@ -13,6 +13,7 @@ namespace di.proyecto.clase._2024.MVVM
     {
         private DiinventarioexamenContext contexto;
         private Modeloarticulo modelo;
+        private Modeloarticulo auxModelo;
         private TipoArticuloServicio tipoArticuloServicio;
         private ModeloArticuloServicio modeloArticuloServicio;
         private IEnumerable<Modeloarticulo> _listaModelos;
@@ -30,6 +31,8 @@ namespace di.proyecto.clase._2024.MVVM
         {
             contexto = context;
             Inicializa();
+            auxModelo= modelo.Clone();
+            
         }
 
         public async void Inicializa()
@@ -43,4 +46,6 @@ namespace di.proyecto.clase._2024.MVVM
         }
 
     }
+
+
 }
