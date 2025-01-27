@@ -247,10 +247,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Frontend\Dialogos\DialogoArticuloMVC.xaml.cs">
+    <Compile Update="Frontend\Dialogos\MVC\DialogoArticuloMVC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Frontend\Dialogos\DialogoModeloArticuloMVVM.xaml.cs">
+    <Compile Update="Frontend\Dialogos\MVVM\DialogoModeloArticuloMVVM.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
