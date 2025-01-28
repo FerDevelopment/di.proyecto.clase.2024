@@ -24,6 +24,20 @@ namespace di.proyecto.clase._2024.MVVM
             get { return modelo; }
             set { modelo = value; OnPropertyChanged(nameof(modeloArticulo)); }
         }
+
+        private String _txtNombreModelo;
+
+        public String txtNombreModelo
+        {
+            set
+            {
+                _txtNombreModelo = value;
+                OnPropertyChanged(nameof(txtNombreModelo));
+            }
+            get =>_txtNombreModelo; 
+        }
+
+
         public bool guarda { get { return Task.Run(() => Add(modeloArticulo)).Result; } }
 
         public MVModeloArticulo(DiinventarioexamenContext context)
@@ -31,8 +45,8 @@ namespace di.proyecto.clase._2024.MVVM
         {
             contexto = context;
             Inicializa();
-            auxModelo= modelo.Clone();
-            
+            auxModelo = modelo.Clone();
+
         }
 
         public async void Inicializa()

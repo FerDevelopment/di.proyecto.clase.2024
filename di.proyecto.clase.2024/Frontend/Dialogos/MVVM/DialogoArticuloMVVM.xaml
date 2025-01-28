@@ -105,7 +105,9 @@
                     mat:HintAssist.Hint="Selecciona un modelo*"
                     DisplayMemberPath="Nombre"
                     FontWeight="Black"
-                    Foreground="#EEDF7A" />
+                    Foreground="#EEDF7A"
+                    SelectedItem="{Binding mvArticulo.crearArticulo.ModeloNavigation}"
+                    Text="{Binding mvArticulo.crearArticulo.a}" />
                 <ComboBox
                     x:Name="comboEstado"
                     Grid.Row="2"

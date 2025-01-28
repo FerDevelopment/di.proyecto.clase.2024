@@ -22,13 +22,55 @@ namespace di.proyecto.clase._2024.Frontend.ControlUsuario
     /// </summary>
     public partial class UCUsuario : UserControl
     {
-        private MVUsuario _mvuser;
-        public UCUsuario(MVUsuario mvUser)
+
+        MVUsuario _mvCrearUsuario;
+        public UCUsuario()
         {
             InitializeComponent();
-            _mvuser = mvUser;
-
-            DataContext = _mvuser;
         }
+
+        public UCUsuario(MVUsuario mv)
+        {
+            InitializeComponent();
+            _mvCrearUsuario = mv;
+            DataContext = _mvCrearUsuario;
+
+        }
+
+        private void mItemBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            _mvCrearUsuario.usuario = (Backend.Modelo.Usuario)dgCrearUsuario.SelectedItem;
+
+            if (_mvCrearUsuario.borrar)
+            {
+                dgCrearUsuario.Items.Refresh();
+                _mvCrearUsuario.usuario = new Usuario();
+                MessageBox.Show("Usuario eliminado correctamente", "Gestión usuarios");
+            }
+            else
+            {
+                MessageBox.Show("Error al intentar eliminar el usuario", "Gestión usuarios");
+            }
+        }
+
+        private void mItemEditar_Click(object sender, RoutedEventArgs e)
+        {
+            _mvCrearUsuario.usuario = (Backend.Modelo.Usuario)dgCrearUsuario.SelectedItem;
+
+            UsuarioCrear uc = new UsuarioCrear(_mvCrearUsuario);
+            uc.ShowDialog();
+
+
+            if (uc.DialogResult.Equals(true))
+            {
+                dgCrearUsuario.Items.Refresh();
+                _mvCrearUsuario.usuario = new Usuario();
+
+            }
+        }
+
+
+
     }
 }
+

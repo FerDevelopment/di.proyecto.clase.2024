@@ -19,6 +19,7 @@
         private EspacioServicio _espacioServicio;
         private ModeloArticuloServicio _modeloArticuloServicio;
 
+        public MVArticulo mvArticulo => _mVArticulo;
         public DialogoArticuloMVVM(MVArticulo mv, Usuario usu)
         {
             _usuario = usu;
@@ -31,14 +32,14 @@
 
             fechaAlta.SelectedDate = DateTime.Now;
             fechaAlta.Text = DateTime.Now.ToString();
-            comboModelo.ItemsSource = await modeloArticuloServicio.GetAllAsync();
+            comboModelo.ItemsSource = await _modeloArticuloServicio.GetAllAsync();
             comboEstado.ItemsSource = estados;
-            comboEspacio.ItemsSource = await espacioServicio.GetAllAsync();
-            comboDepartamento.ItemsSource = await dptoServicio.GetAllAsync();
-            comboArmario.ItemsSource = await articuloServicio.GetAllAsync();
+            comboEspacio.ItemsSource = await _espacioServicio.GetAllAsync();
+            comboDepartamento.ItemsSource = await _dptoServicio.GetAllAsync();
+            comboArmario.ItemsSource = await _articuloServicio.GetAllAsync();
 
-            usuario.Items.Add(userLogin);
-            usuario.SelectedItem = userLogin;
+            usuario.Items.Add(_usuario);
+            usuario.SelectedItem = _usuario;
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -48,10 +49,10 @@
 
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            recogerDatos();
-            if (articuloServicio.NumserieUnico(articulo.Numserie))
+           
+            if (_articuloServicio.NumserieUnico(_articulo.Numserie))
             {
-                if (await articuloServicio.AddAsync(articulo))
+                if (await _articuloServicio.AddAsync(_articulo))
                 {
                     await this.ShowMessageAsync("Gestión de Articulos", "Articulo creado e insertado correctamente");
                     DialogResult = true;
@@ -69,20 +70,7 @@
             }
         }
 
-        private void recogerDatos()
-        {
+     
 
-            articulo.Idarticulo = articuloServicio.GetLastId() + 1;
-            articulo.Observaciones = observaciones.Text;
-            articulo.Fechaalta = fechaAlta.SelectedDate.HasValue ? fechaAlta.SelectedDate : DateTime.Now;
-            articulo.Numserie = numeroSerie.Text;
-
-            articulo.Estado = comboEstado.SelectedItem.ToString();
-            articulo.DepartamentoNavigation = (Departamento)comboDepartamento.SelectedItem;
-            articulo.EspacioNavigation = (Espacio)comboEspacio.SelectedItem;
-            articulo.UsuarioaltaNavigation = userLogin;
-            articulo.ModeloNavigation = (Modeloarticulo)comboModelo.SelectedItem;
-            articulo.DentrodeNavigation = (Articulo)comboArmario.SelectedItem;
-        }
     }
 }

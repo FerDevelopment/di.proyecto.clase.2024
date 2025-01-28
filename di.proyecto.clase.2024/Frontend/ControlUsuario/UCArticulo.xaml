@@ -10,69 +10,75 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-
         <DataGrid
-            x:Name="dgModeloArticulo"
+            x:Name="dgCrearArticulo"
             AutoGenerateColumns="False"
-            ItemsSource="{Binding listaArticulo}">
-
+            CanUserAddRows="False"
+            ColumnWidth="*"
+            IsReadOnly="True"
+            ItemsSource="{Binding listaArmarios}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Numserie}" Header="Numero de serie" />
+                <DataGridTextColumn Binding="{Binding Numserie}" Header="Número de serie" />
                 <DataGridTextColumn Binding="{Binding Estado}" Header="Estado" />
-
-
                 <DataGridTemplateColumn Header="Fecha de alta">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Fechaalta}" />
-
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                    <DataGridTemplateColumn.CellEditingTemplate>
-                        <DataTemplate>
                             <DatePicker SelectedDate="{Binding Fechaalta}" />
                         </DataTemplate>
-                    </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding UsuarioaltaNavigation.Nombre}" Header="Usuario de alta" />
+                <DataGridTextColumn Binding="{Binding ModeloNavigation.Nombre}" Header="Nombre de modelo" />
+                <DataGridTextColumn Binding="{Binding DepartamentoNavigation.Nombre}" Header="Nombre de departamento" />
+                <DataGridTextColumn Binding="{Binding EspacioNavigation.Nombre}" Header="Espacio" />
 
-                <DataGridTemplateColumn Header="Fecha de baja">
+                <DataGridTemplateColumn Header="Editar - Borrar">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Fechabaja}" />
+
+                            <StackPanel Orientation="Horizontal">
+                                <Button
+                                    x:Name="mItemEditar"
+                                    Click="mItemEditar_Click"
+                                    Content="{mat:PackIcon Kind=Edit}"
+                                    Foreground="DodgerBlue"
+                                    Style="{StaticResource MaterialDesignToolButton}" />
+                                <Button
+                                    x:Name="mItemBorrar"
+                                    Click="mItemBorrar_Click"
+                                    Content="{mat:PackIcon Kind=Delete}"
+                                    Foreground="Red"
+                                    Style="{StaticResource MaterialDesignToolButton}" />
+                            </StackPanel>
+
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                    <DataGridTemplateColumn.CellEditingTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding Fechabaja}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding Usuarioalta}" Header="Usuario de alta" />
-                <DataGridTextColumn Binding="{Binding ModeloNavigation.Nombre}" Header="Modelo" />
 
-                <DataGridTextColumn Binding="{Binding DepartamentoNavigation.Nombre}" Header="Departamento" />
-
-                <DataGridTextColumn Binding="{Binding EspacioNavigation.Nombre}" Header="Espacio" />
             </DataGrid.Columns>
 
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Editar">
+                    <MenuItem
+                        x:Name="mItemEditar"
+                        Click="mItemEditar_Click"
+                        Header="Editar">
                         <MenuItem.Icon>
-                            <mat:PackIcon Foreground="Gray" Kind="Edit" />
+                            <mat:PackIcon Foreground="DodgerBlue" Kind="Edit" />
                         </MenuItem.Icon>
-
                     </MenuItem>
-                    <MenuItem Header="Borrar">
+
+                    <MenuItem
+                        x:Name="mItemBorrar"
+                        Click="mItemBorrar_Click"
+                        Header="Borrar">
                         <MenuItem.Icon>
                             <mat:PackIcon Foreground="Red" Kind="Delete" />
                         </MenuItem.Icon>
-
                     </MenuItem>
                 </ContextMenu>
             </DataGrid.ContextMenu>
+
         </DataGrid>
-
-
     </Grid>
 </UserControl>
